@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/cpp/.cph
+/python/.cph
+/python/.vscode
+/euler-solutions.txt
