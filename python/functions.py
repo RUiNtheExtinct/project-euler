@@ -6,7 +6,8 @@ import math as mt
 
 import random as rd
 import bisect as bi
-import time
+
+# import time
 
 sys.setrecursionlimit(1000000)
 
@@ -57,20 +58,24 @@ def num_width_base_10(n):
     return mt.floor(mt.log10(n)) + 1
 
 
+def powers_in_range(n, r):
+    return mt.floor(mt.log(r, n))
+
+
 # Starting Time
-time1 = time.time()
+# time1 = time.time()
 
 
-if __name__ == "__main__":
-    n = uno()
-    print(num_width_base_10(n))
+# if __name__ == "__main__":
+#     n = uno()
+#     print(num_width_base_10(n))
 
 
-# End Time
-time2 = time.time()
-time = (
-    str(round((time2 - time1) * 1000, 3)) + "ms"
-    if (round((time2 - time1) * 1000, 3)) < 1000
-    else str(round(time2 - time1, 3)) + "s"
-)
-print("\nTime Taken:", time)
+# # End Time
+# time2 = time.time()
+# time = (
+#     str(round((time2 - time1) * 1000, 3)) + "ms"
+#     if (round((time2 - time1) * 1000, 3)) < 1000
+#     else str(round(time2 - time1, 3)) + "s"
+# )
+# print("\nTime Taken:", time)
