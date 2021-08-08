@@ -71,6 +71,18 @@ def nloglogn_seive(n):
     return prime
 
 
+def isPal(s):
+    return s == s[::-1]
+
+
+def get_base_k(n, k):
+    s = ""
+    while n > 0:
+        s += str(n % k)
+        n //= k
+    return s[::-1]
+
+
 def char_to_ind(a):
     return ord(a) - ord("a")
 
