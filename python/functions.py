@@ -54,6 +54,23 @@ def factorize(n):
     return ct
 
 
+def nloglogn_seive(n):
+    lp = [0] * (n + 1)
+    prime = [True] * (n + 1)
+    pr = []
+    prime[0] = prime[1] = False
+    for i in range(2, n):
+        if prime[i] == True:
+            lp[i] = i
+            pr.append(i)
+        j = 0
+        while j < len(pr) and pr[j] <= lp[i] and i * pr[j] < n:
+            prime[i * pr[j]] = False
+            lp[i * pr[j]] = pr[j]
+            j += 1
+    return prime
+
+
 def char_to_ind(a):
     return ord(a) - ord("a")
 
