@@ -1,6 +1,5 @@
 # import decimal as dec
-import itertools as it
-
+# import itertools as it
 # import functools as ft
 # import collections as coll
 import sys
@@ -37,29 +36,29 @@ time1 = time.time()
 mod = 1000000007
 
 
-# NOTE If code does't work on HackerRank refer the C++ code.
-######## CODE STARTS FROM HERE ########
-digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# for _ in range(uno()):
-n = uno()
-digits, ans = digits[:n], 0
-d = {}
-for i in it.permutations(digits, r=n):
-    for j in range(1, n):
-        for k in range(1, n - j):
-            if n - j - k < j or n - j - k < k:
-                break
-            a, b, c = 0, 0, 0
-            for t in range(j):
-                a = a * 10 + i[t]
-            for t in range(j, j + k):
-                b = b * 10 + i[t]
-            for t in range(j + k, n):
-                c = c * 10 + i[t]
-            if a * b == c:
-                d[c] = 1
-print(sum(d.keys()))
+# NOTE If code doesn't work on HackerRank refer the C++ code.
 
+######## NOTE CODE STARTS FROM HERE ########
+# for _ in range(uno()):
+n, k = tres()
+ans, ans1, ans2 = 1, 0, 0
+for den in range(10 ** (n - 1) + 1, 10 ** n):
+    for num in range(10 ** (n - 1), den):
+        if mt.gcd(num, den) % (10 ** (n - 1)) == 0:
+            continue
+        a = mt.gcd(num, den)
+        if a == 1:
+            continue
+        p, q, r, s, t = str(num), str(den), "", "", 0
+        kk = k
+        for i in range(n):
+            if p[i] in q:
+                t += 1
+        if t < k:
+            continue
+
+
+print(ans1, ans2)
 
 # End Time
 time2 = time.time()

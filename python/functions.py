@@ -54,6 +54,14 @@ def factorize(n):
     return ct
 
 
+def char_to_ind(a):
+    return ord(a) - ord("a")
+
+
+def ind_to_char(i):
+    return chr(i + ord("a"))
+
+
 def num_width_base_10(n):
     return mt.floor(mt.log10(n)) + 1
 
