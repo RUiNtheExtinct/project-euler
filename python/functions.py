@@ -30,7 +30,7 @@ def cuatro():
     return sys.stdin.readline().strip().split()
 
 
-def sieve_for_primes_to(n):
+def eratosthenes_seive(n):
     size = n // 2
     sieve = [True] * size
     limit = int(n ** 0.5)
@@ -40,18 +40,6 @@ def sieve_for_primes_to(n):
             tmp = ((size - 1) - i) // val
             sieve[i + val :: val] = [0] * tmp
     return [2] + [i * 2 + 1 for i, v in enumerate(sieve) if v and i > 0]
-
-
-def factorize(n):
-    i = 1
-    ct = 0
-    while i * i < n:
-        if n % i == 0:
-            ct += 1
-            if n // i != i:
-                ct += 1
-        i += 1
-    return ct
 
 
 def nloglogn_seive(n):
@@ -69,6 +57,29 @@ def nloglogn_seive(n):
             lp[i * pr[j]] = pr[j]
             j += 1
     return prime
+
+
+def factorize(n):
+    i = 1
+    ct = 0
+    while i * i < n:
+        if n % i == 0:
+            ct += 1
+            if n // i != i:
+                ct += 1
+        i += 1
+    return ct
+
+
+def is_prime(n):
+    if n % 2 == 0:
+        return False
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 2
+    return True
 
 
 def isPal(s):
