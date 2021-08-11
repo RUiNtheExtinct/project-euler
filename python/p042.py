@@ -1,14 +1,14 @@
 # import decimal as dec
-import itertools as it
-
+# import itertools as it
 # import functools as ft
 # import collections as coll
 import sys
 import math as mt
+from pathlib import Path
+
 
 # import random as rd
-import bisect as bi
-
+# import bisect as bi
 # import functions as fn
 import time
 
@@ -38,48 +38,35 @@ time1 = time.time()
 mod = 1000000007
 
 
-def is_prime(n):
-    if n == 1:
-        return False
-    if n == 2 or n == 3 or n == 5 or n == 7:
-        return True
-    if n % 2 == 0:
-        return False
-    i = 7
-    while i * i < n:
-        if n % i == 0:
-            return False
-        i += 2
-    return True
-
-
-def itup_to_int(t):
-    t = t[::-1]
-    ans, a = 0, 0
-    for i in t:
-        ans += i * (10 ** a)
-        a += 1
-    return ans
-
-
 # ! IF code doesn't work on HackerRank refer the C++ code if available.
 
 ######## ? CODE STARTS FROM HERE ########
-d = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-pr = []
-for i in range(1, 10):
-    for j in it.permutations(d[:i], i):
-        k = itup_to_int(j)
-        if is_prime(k) == True:
-            pr.append(k)
-pr.sort()
+
+
+def is_triangular(n):
+    m = (-1 + mt.sqrt(1 + 8 * 1 * n)) / 2
+    if m == mt.floor(m):
+        return int(m)
+    return -1
+
+
 for _ in range(uno()):
-    n = uno()
-    ans = bi.bisect_left(pr, n) - 1
-    if ans == -1:
-        print(ans)
-    else:
-        print(pr[ans])
+    print(is_triangular(uno()))
+
+
+# ! Below code works for Project Euler only.
+# f = open(r"../p042_words.txt", "r")
+# words = f.read().split(",")
+# ans = 0
+# for i in range(len(words)):
+#     words[i] = words[i].strip('"')
+#     a = 0
+#     for j in words[i]:
+#         a += ord(j) - ord("A") + 1
+#     if is_triangular(a) == True:
+#         ans += 1
+# print(ans)
+# f.close()
 
 
 # End Time

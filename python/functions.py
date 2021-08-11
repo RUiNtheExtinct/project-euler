@@ -72,14 +72,27 @@ def factorize(n):
 
 
 def is_prime(n):
+    if n == 1:
+        return False
+    if n == 2 or n == 3 or n == 5 or n == 7:
+        return True
     if n % 2 == 0:
         return False
-    i = 3
-    while i * i <= n:
+    i = 7
+    while i * i < n:
         if n % i == 0:
             return False
         i += 2
     return True
+
+
+def itup_to_int(t):
+    t = t[::-1]
+    ans, a = 0, 0
+    for i in t:
+        ans += i * (10 ** a)
+        a += 1
+    return ans
 
 
 def isPal(s):
