@@ -142,7 +142,7 @@ def powers_in_range(n, r):
 
 # if __name__ == "__main__":
 #     n = uno()
-#     print(num_width_base_10(n))
+#     print(powermod(17, 41, 43))
 
 
 # # End Time
